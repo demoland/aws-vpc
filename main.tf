@@ -1,7 +1,5 @@
 locals {
-  cluster1_name = "mtc1"
-  cluster2_name = "mtc2"
-  cluster3_name = "mtc3"
+  cluster1_name = "dgs-1"
 }
 
 
@@ -23,18 +21,10 @@ module "vpc" {
   public_subnet_tags = {
     "kubernetes.io/cluster/${local.cluster1_name}" = "shared"
     "kubernetes.io/role/elb"                       = 1
-    "kubernetes.io/cluster/${local.cluster2_name}" = "shared"
-    "kubernetes.io/role/elb"                       = 1
-    "kubernetes.io/cluster/${local.cluster3_name}" = "shared"
-    "kubernetes.io/role/elb"                       = 1
   }
 
   private_subnet_tags = {
     "kubernetes.io/cluster/${local.cluster1_name}" = "shared"
-    "kubernetes.io/role/internal-elb"              = 1
-    "kubernetes.io/cluster/${local.cluster2_name}" = "shared"
-    "kubernetes.io/role/internal-elb"              = 1
-    "kubernetes.io/cluster/${local.cluster3_name}" = "shared"
     "kubernetes.io/role/internal-elb"              = 1
   }
 
