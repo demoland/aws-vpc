@@ -18,6 +18,7 @@ module "vpc" {
   enable_nat_gateway = true
   enable_vpn_gateway = true
 
+
   # Cluster Tags:
   public_subnet_tags = {
     "kubernetes.io/cluster/${local.cluster1_name}" = "shared"
