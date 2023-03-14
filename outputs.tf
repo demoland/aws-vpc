@@ -23,14 +23,6 @@ output "cluster1_name" {
   value = local.cluster1_name
 }
 
-output "cluster2_name" {
-  value = local.cluster2_name
-}
-
-output "cluster3_name" {
-  value = local.cluster3_name
-}
-
 output "vpc_cidr" {
   value = module.vpc.vpc_cidr_block
 }
