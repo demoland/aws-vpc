@@ -31,6 +31,14 @@ output "region" {
   value = var.region
 }
 
+output "management_key" {
+  value = aws_key_pair.management_key.key_name
+}
+
+output "ssh_sg" {
+  value = aws_security_group.ssh.id
+}
+
 # output "private_subnet_1" {
 #   value = module.vpc.aws_subnet.private[0]
 # }
