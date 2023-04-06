@@ -24,3 +24,7 @@ variable "subnet_mask" {
   default     = "24"
   description = "Subnet mask"
 }
+
+variable "my_ip" {
+  description = "My IP CIDR block"
+}
