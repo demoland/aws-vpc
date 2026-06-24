@@ -15,8 +15,11 @@ module "vpc" {
 
 }
 
+# name_prefix avoids the ResourceExistsException from the orphaned
+# "consul_servers" secret already in AWS (the dev role can't Describe/Delete it,
+# so import isn't possible). Consumers use the ARN output, not the literal name.
 resource "aws_secretsmanager_secret" "consul_servers" {
-  name = "consul_servers"
+  name_prefix = "consul_servers_"
 }
 
 resource "aws_kms_key" "consul_servers" {
