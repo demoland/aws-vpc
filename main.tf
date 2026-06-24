@@ -11,6 +11,7 @@ module "vpc" {
   public_subnets  = ["${var.cidr_prefix}.1.0/${var.subnet_mask}", "${var.cidr_prefix}.2.0/${var.subnet_mask}"]
 
   enable_nat_gateway = true
+  single_nat_gateway = true # one shared NAT gateway -> 1 EIP instead of one per AZ (account EIP cap is 5)
   enable_vpn_gateway = true
 
 }
